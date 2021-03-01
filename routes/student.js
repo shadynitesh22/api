@@ -1,3 +1,4 @@
+const { json } = require("express");
 const express = require("express");
 const  router = express.Router();
 
@@ -10,6 +11,8 @@ const {
   } = require("../controllers/student");
 
   const { protect } = require("../middleware/auth");
+const Student = require("../model/Student");
+const { route } = require("./auth");
 
   router
   .route("/")
@@ -25,5 +28,7 @@ const {
   .get(protect,getStudentById)
   .delete(protect, deleteStudent);
 
+
+  
 
   module.exports = router
